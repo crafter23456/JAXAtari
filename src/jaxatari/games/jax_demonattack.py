@@ -414,8 +414,8 @@ class JaxDemonAttack(JaxEnvironment[DemonAttackState, DemonAttackObservation, De
         demons = ObjectObservation.create(
             x=state.demons_x,
             y=state.demons_y,
-            width=jnp.array(self.consts.DEMON_SIZE[0]),
-            height=jnp.array(self.consts.DEMON_SIZE[1]),
+            width=jnp.full_like(state.demons_x, self.consts.DEMON_SIZE[0]),
+            height=jnp.full_like(state.demons_y, self.consts.DEMON_SIZE[1]),
             active=state.demons_alive
         )
 
